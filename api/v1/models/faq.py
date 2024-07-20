@@ -21,7 +21,7 @@ from sqlalchemy.dialects.postgresql import UUID
 
 
 class Job(BaseModel, Base):
-    __tablename__ = 'jobs'
+    __tablename__ = 'faqs'
     
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid7)
     question = Column(String(1024), nullable=False)
@@ -29,6 +29,4 @@ class Job(BaseModel, Base):
     category = Column(String(255), nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-    
-    # Define relationship with User
-    user = relationship("User", backref="jobs")
+
